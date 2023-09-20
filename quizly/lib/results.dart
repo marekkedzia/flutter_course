@@ -31,12 +31,49 @@ class ResultsScreen extends StatelessWidget {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               const SizedBox(height: 30),
-              const Text("Ukończyłeś quiz!",
-                  style: TextStyle(fontSize: 30, color: Colors.white)),
+              Text(
+                "Ukończyłeś quiz!",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  shadows: [
+                    Shadow(
+                      color: Colors.black.withOpacity(0.25),
+                      blurRadius: 4.0,
+                      offset: const Offset(2.0, 2.0),
+                    ),
+                  ],
+                ),
+              ),
               const SizedBox(height: 30),
               QuestionsSummary(getSummary()),
-              const SizedBox(height: 30),
-              TextButton(child: const Text("Restart"), onPressed: () {})
+              const SizedBox(height: 15),
+              SizedBox(
+                width: 275.0,
+                child: TextButton(
+                  style: ButtonStyle(
+                    padding: MaterialStateProperty.all(
+                        const EdgeInsets.symmetric(
+                            horizontal: 25, vertical: 10)),
+                    backgroundColor: MaterialStateProperty.all(
+                      const Color.fromARGB(255, 141, 13, 13),
+                    ),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    shadowColor: MaterialStateProperty.all(Colors.black45),
+                    elevation: MaterialStateProperty.all(5),
+                  ),
+                  child: const Text(
+                    "Restart",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  onPressed: () {},
+                ),
+              )
             ]),
           ),
         ));
